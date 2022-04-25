@@ -69,13 +69,13 @@
 
 1. Migrations:
 
-`python manage.py makemigrations links`
+    `python manage.py makemigrations links`
 
-`python manage.py sqlmigrate links 0001`
+    `python manage.py sqlmigrate links 0001`
 
-`python manage.py migrate links`
+    `python manage.py migrate links`
 
-`python manage.py migrate`
+    `python manage.py migrate`
 
 1. Add `LinkSerializer` to `api\serializers.py`:
     ```
