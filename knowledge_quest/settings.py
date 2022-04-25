@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
 
     'accounts.apps.AccountsConfig',
+    'links.apps.LinksConfig',
 
     'rest_framework',
     'api.apps.ApiConfig',
