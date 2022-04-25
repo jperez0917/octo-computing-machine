@@ -18,8 +18,9 @@
   3. `git push`
 10. Go to GitHub and open branch page:
   * ![image](https://user-images.githubusercontent.com/47562501/165171952-37c8caf0-4d87-46dd-8815-106cb99313f1.png)
-11. Verify merging to proper branch.
-12. Click 'Create pull request'.
+11. Click compare and pull request button.
+12. Verify merging to proper branch.
+13. Click 'Create pull request'.
 13. Assign task to 'Reviewers' or 'Assignees'.
   * ![image](https://user-images.githubusercontent.com/47562501/165172447-0a51169e-c641-430a-9a70-ad2f92859906.png)
 14. Go to your terminal.
