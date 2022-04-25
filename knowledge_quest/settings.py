@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
 
     'accounts.apps.AccountsConfig',
+
+    'rest_framework',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
