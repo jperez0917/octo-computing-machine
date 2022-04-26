@@ -1,4 +1,5 @@
 ## Issue 29 - User can view list of Links on some page
+[Issue 29](https://github.com/jperez0917/octo-computing-machine/issues/29)
 
 ### Resources:
 
