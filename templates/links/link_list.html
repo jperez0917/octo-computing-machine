@@ -4,7 +4,8 @@
 
     {% for link in link_list %}
         <div>
-            <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a>
+            <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
+            <a href="{% url 'links:link-detail' link.id %}">Details for {{ link.url_label }}</a><br>
             <p>{{ link.owner }} : {{ link.public }}</p>
             <p>{{ link.id }} : {{ link.notes }}</p>
         </div>
