@@ -32,7 +32,7 @@ class Link(models.Model):
         return f'{ self.id } : { self.url_label }'
 
     def get_absolute_url(self):
-        return reverse('links:link-detail', args=(self.pk,))
+        return reverse('links:detail', args=(self.pk,))
 
     class Meta:
         ordering = ('-id',)
