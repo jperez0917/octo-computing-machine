@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for link in link_list %}
+        <div>
+            <a href="{{ link.url }}">{{ link.url_label }}</a>
+            <p>{{ link.owner }} : {{ link.public }}</p>
+            <p>{{ link.id }} : {{ link.notes }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

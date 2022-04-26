@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from links.models import Link
+
+class LinkListView(ListView):
+    model = Link
+    template_name = 'links/link_list.html'
