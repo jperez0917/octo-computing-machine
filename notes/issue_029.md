@@ -16,7 +16,7 @@
     * http://localhost:8020/
     * http://localhost:8020/api/v1/
     * http://localhost:8020/admin/
-    * http://localhost:8020/links/link-list/
+    * http://localhost:8020/links/
 
 ### Code changes and additions:
 
@@ -56,7 +56,7 @@
 
     app_name = 'links'
     urlpatterns = [
-        path('link-list/', LinkListView.as_view(), name='link-list')
+        path('', LinkListView.as_view(), name='link-list')
     ]
     ```
 
