@@ -1,4 +1,5 @@
-## Issue 19 - Accounts API setup
+## Issue 22 - Accounts API setup
+[Issue 22](https://github.com/jperez0917/octo-computing-machine/issues/22)
 
 ### Resources:
 
