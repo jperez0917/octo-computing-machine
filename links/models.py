@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from knowledge_quest.settings import AUTH_USER_MODEL
 
@@ -29,7 +30,10 @@ class Link(models.Model):
 
     def __str__(self):
         return f'{ self.id } : { self.url_label }'
-    
+
+    def get_absolute_url(self):
+        return reverse('links:link-detail', args=(self.pk,))
+
     class Meta:
         ordering = ('-id',)
 
