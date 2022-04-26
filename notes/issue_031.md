@@ -1,4 +1,5 @@
 ## Issue 31 - User can use Django create template
+[Issue 31](https://github.com/jperez0917/octo-computing-machine/issues/31)
 
 ### Resources:
 
