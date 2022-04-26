@@ -1,4 +1,5 @@
 ## Issue 21 - User can save url, url_label, notes in Links app
+[Issue 21](https://github.com/jperez0917/octo-computing-machine/issues/21)
 
 ### Resources:
 
