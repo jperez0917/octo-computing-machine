@@ -16,7 +16,7 @@
     * http://localhost:8020/
     * http://localhost:8020/api/v1/
     * http://localhost:8020/admin/
-    * http://localhost:8020/links/link-list/
+    * http://localhost:8020/links/
     * http://localhost:8020/links/link-create/
     * http://localhost:8020/links/link-detail/1/
 
