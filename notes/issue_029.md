@@ -11,9 +11,60 @@
     * Powershell: `C:\Users\Bruce\.virtualenvs\octo-computing-machine-kicSxgWi\Scripts\activate.ps1`
 * Start server:
     * `python manage.py runserver 8020`
-* Application URL:
+* Project and application URLs:
     * http://localhost:8020/
     * http://localhost:8020/api/v1/
     * http://localhost:8020/admin/
     * http://localhost:8020/links/link-list/
+
+### Code changes and additions:
+
+1. Create `templates\links\link_list.html` template:
+    ```
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+        {% for link in link_list %}
+            <div>
+                <a href="{{ link.url }}">{{ link.url_label }}</a>
+                <p>{{ link.owner }} : {{ link.public }}</p>
+                <p>{{ link.id }} : {{ link.notes }}</p>
+            </div>
+        {% endfor %}
+
+    {% endblock content %}
+    ```
+
+1. Add `LinkListView` to `links\views.py`:
+    ```
+    from django.views.generic import ListView
+
+    from links.models import Link
+
+    class LinkListView(ListView):
+        model = Link
+        template_name = 'links/link_list.html'
+    ```
+
+1. Add `link-list` route to `links\urls.py`:
+    ```
+    from django.urls import path
+
+    from links.views import LinkListView
+
+    app_name = 'links'
+    urlpatterns = [
+        path('link-list/', LinkListView.as_view(), name='link-list')
+    ]
+    ```
+
+1. Add `links` route to `knowledge_quest\settings.py`:
+    ```
+    urlpatterns = [
+        ...
+        path('links/', include('links.urls')),
+        ...
+    ]
+    ```
 
