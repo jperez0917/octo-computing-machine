@@ -48,7 +48,7 @@
         template_name = 'links/link_list.html'
     ```
 
-1. Add `link-list` route to `links\urls.py`:
+1. Add `list` route to `links\urls.py`:
     ```
     from django.urls import path
 
@@ -56,7 +56,7 @@
 
     app_name = 'links'
     urlpatterns = [
-        path('', LinkListView.as_view(), name='link-list')
+        path('', LinkListView.as_view(), name='list')
     ]
     ```
 

@@ -17,8 +17,8 @@
     * http://localhost:8020/api/v1/
     * http://localhost:8020/admin/
     * http://localhost:8020/links/
-    * http://localhost:8020/links/link-create/
-    * http://localhost:8020/links/link-detail/1/
+    * http://localhost:8020/links/create/
+    * http://localhost:8020/links/1/
 
 ### Code changes and additions:
 
@@ -75,15 +75,15 @@
         template_name = 'links\link_detail.html'
     ```
 
-1. Add `link-create` and `link-detail` routes to `links\urls.py`:
+1. Add `create` and `detail` routes to `links\urls.py`:
     ```
     from links.views import LinkCreateView, LinkDetailView
 
     app_name = 'links'
     urlpatterns = [
         ...
-        path('link-create/', LinkCreateView.as_view(), name='link-create'),
-        path('link-detail/<int:pk>/', LinkDetailView.as_view(), name='link-detail'),
+        path('create/', LinkCreateView.as_view(), name='create'),
+        path('<int:pk>/', LinkDetailView.as_view(), name='detail'),
         ...
     ]
     ```
@@ -93,7 +93,7 @@
 class Link(models.Model):
     ...
     def get_absolute_url(self):
-        return reverse('links:link-detail', args=(self.pk,))
+        return reverse('links:detail', args=(self.pk,))
     ...
 ```
 
