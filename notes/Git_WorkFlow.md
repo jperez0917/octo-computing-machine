@@ -1,5 +1,6 @@
 ## Card creation and git workflow
 
+1. Start in [Project Board](https://github.com/jperez0917/octo-computing-machine/projects/1)
 1. Create 'note' and convert it to 'Issue', or create 'Issue' directly.
 2. Go to Issue page.
 3. Click on 'Create a branch':
