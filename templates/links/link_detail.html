@@ -4,7 +4,8 @@
 
     <div>
         <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a>
-        <p>{{ link.id }} : {{ link.public }} : {{ link.notes }}</p>
+        <p>{{ link.owner }}</p>
+        <p>{{ link.public }} : {{ link.id }} : {{ link.notes }}</p>
     </div>
 
     {% if user == link.owner %}
