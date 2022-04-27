@@ -29,7 +29,7 @@ class Link(models.Model):
     )
 
     def __str__(self):
-        return f'{ self.id } : { self.url_label }'
+        return f'{ self.id } : {self.owner} : { self.url_label }'
 
     def get_absolute_url(self):
         return reverse('links:detail', args=(self.pk,))

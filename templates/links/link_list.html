@@ -4,10 +4,10 @@
 
     {% for link in link_list %}
         <div>
-            <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
+            <a href="{{ link.url }}" target="_blank">{{ link.id }} : {{ link.url_label }}</a><br>
             <a href="{% url 'links:detail' link.id %}">Details for {{ link.url_label }}</a><br>
-            <p>{{ link.owner }} : {{ link.public }}</p>
-            <p>{{ link.id }} : {{ link.notes }}</p>
+            <p>{{ link.owner }} - Public:{{ link.public }}</p>
+            <p>{{ link.notes }}</p>
         </div>
     {% endfor %}
 
