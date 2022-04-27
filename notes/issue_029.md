@@ -4,7 +4,6 @@
 ### Resources:
 
 * https://github.com/django/django
-* https://learndjango.com/tutorials/django-custom-user-model
 
 ### Commands, virtual environment, etc:
 
