@@ -1,5 +1,5 @@
 ## Issue 39 - Create view requires user to be logged in
-[Issue 31](https://github.com/jperez0917/octo-computing-machine/issues/31)
+[Issue 39](https://github.com/jperez0917/octo-computing-machine/issues/39)
 
 ### Resources:
 
