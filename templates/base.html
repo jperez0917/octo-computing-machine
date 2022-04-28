@@ -8,13 +8,14 @@
 </head>
 <body>
     <main>
-        <a href="{% url 'home' %}">Home</a><br>
-        <a href="{% url 'links:list' %}">Link List</a><br>
-        <a href="{% url 'links:create' %}">Link Create</a><br>
-        <a href="http://localhost:8020/api/v1/" target="_blank">API</a><br>
-        <a href="http://localhost:8020/admin/" target="_blank">Admin</a><br>
+        <nav class="nav-main">
+            <a href="{% url 'home' %}">Project Home</a><br>
         {% block content %}
         {% endblock %}
     </main>
+    <footer>
+        <a href="http://localhost:8020/api/v1/" target="_blank">API - External site</a><br>
+        <a href="http://localhost:8020/admin/" target="_blank">Django Admin Page - External site</a><br>
+    </footer>
 </body>
 </html>

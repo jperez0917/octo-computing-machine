@@ -240,7 +240,7 @@
 
     {% block content %}
         {% if user.is_authenticated %}
-            Hi {{ user.username }}!
+            Hi {{ user.username|capfirst }}!
             <p><a href="{% url 'logout' %}">Log Out</a></p>
             {% else %}
             <p>You are not logged in</p>
