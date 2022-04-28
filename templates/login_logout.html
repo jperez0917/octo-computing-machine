@@ -1,6 +1,6 @@
 <div class="user-login-status">
     {% if user.is_authenticated %}
-        Hi {{ user.username|capfirst }}!<br>
+        Welcome, {{ user.username|capfirst }}:<br>
         <a href="{% url 'logout' %}">Log Out</a>
     {% else %}
         You are not logged in.<br>
