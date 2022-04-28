@@ -43,5 +43,5 @@ class LinkDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('links:list')
 
     def test_func(self):
-        post = self.get_object()
-        return self.request.user == post.owner
+        link = self.get_object()
+        return self.request.user == link.owner
