@@ -6,7 +6,7 @@
     <a href="{% url 'links:list' %}">Links Home</a><br>
 </nav>
     {% if user.is_authenticated %}
-        Hi {{ user.username|capfirst }}!<br>
+        Welcome, {{ user.username|capfirst }}:<br>
         <a href="{% url 'logout' %}">Log Out</a>
     {% else %}
         <p>You are not logged in</p>
