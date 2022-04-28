@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
+{% block title %}Links Home{% endblock %}
+
 {% block content %}
+    <a href="{% url 'links:create' %}">Link Create</a><br>
+</nav>
+
+{% include 'login_logout.html' %}
 
     {% for link in link_list %}
         <div>

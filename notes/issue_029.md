@@ -44,7 +44,7 @@
 
     class LinkListView(ListView):
         model = Link
-        template_name = 'links/link_list.html'
+        template_name = 'links/link_home.html'
     ```
 
 1. Add `list` route to `links\urls.py`:

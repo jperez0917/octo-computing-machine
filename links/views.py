@@ -9,7 +9,7 @@ from links.models import Link
 
 class LinkListView(ListView):
     model = Link
-    template_name = 'links/link_list.html'
+    template_name = 'links/link_home.html'
 
 
 class LinkDetailView(DetailView):
