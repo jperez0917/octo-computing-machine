@@ -3,6 +3,7 @@
 {% block title %}Links Home{% endblock %}
 
 {% block content %}
+    <a href="{% url 'home' %}">Project Home</a><br>
     <a href="{% url 'links:create' %}">Link Create</a><br>
     <a href="/accounts/profile/admin/">admin's Links</a><br>
     <a href="/accounts/profile/testUser/">testUser's Links</a><br>

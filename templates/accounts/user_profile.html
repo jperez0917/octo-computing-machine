@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <a href="{% url 'home' %}">Project Home</a><br>
     <a href="{% url 'links:list' %}">Links Home</a><br>
 </nav>
 
@@ -10,8 +11,8 @@
 
     {% for link in user_profile.links.all %}
         <div class="link-entry">
-            <a href="{% url 'links:detail' link.pk %}">Detail view of {{ link.url_label }}</a><br>
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
+            <a href="{% url 'links:detail' link.pk %}">Detail view of {{ link.url_label }}</a><br>
             <p>{{ link.notes|linebreaksbr }}</p>
         </div>
     {% endfor %}
