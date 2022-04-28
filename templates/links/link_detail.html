@@ -10,7 +10,7 @@
 
     <div>
         <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a>
-        <p>{{ link.owner }}</p>
+        <p>{{ link.owner|capfirst }}</p>
         <p>Public:{{ link.public }} : {{ link.id }} : {{ link.notes }}</p>
     </div>
 
