@@ -6,6 +6,7 @@ from links.models import Link
 
 
 class NestedLinkSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Link
         fields = (
@@ -18,6 +19,7 @@ class NestedLinkSerializer(serializers.ModelSerializer):
 
 
 class NestedUserSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = get_user_model()
         fields = (
@@ -27,7 +29,12 @@ class NestedUserSerializer(serializers.ModelSerializer):
 
 
 class LinkSerializer(serializers.ModelSerializer):
-    owner_detail = NestedUserSerializer(read_only=True, source='owner')
+
+    owner_detail = NestedUserSerializer(
+        read_only=True,
+        source='owner'
+    )
+
     class Meta:
         model = Link
         fields = (
@@ -42,13 +49,23 @@ class LinkSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    links_detail = NestedLinkSerializer(read_only=True, many=True, source='links')
+
+    links_detail = NestedLinkSerializer(
+        read_only=True,
+        many=True,
+        source='links'
+    )
+    links_count = serializers.SerializerMethodField()
+    
     class Meta:
         model = get_user_model()
         fields = (
             'id',
             'username',
+            'links_count',
             'links_detail',
             )
 
+    def get_links_count(self, obj):
+        return Link.objects.all().filter(owner=obj.id).count()
 
