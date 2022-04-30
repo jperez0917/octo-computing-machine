@@ -3,6 +3,7 @@ from rest_framework import viewsets, generics, permissions
 from django.contrib.auth import get_user_model
 
 from api.serializers import UserSerializer, LinkSerializer
+from api.permissions import IsOwnerOrReadOnly
 from links.models import Link
 
 
@@ -15,7 +16,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 class LinkViewSet(viewsets.ModelViewSet):
     queryset = Link.objects.all()
     serializer_class = LinkSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (IsOwnerOrReadOnly,)
 
 
 class CurrentUserView(generics.RetrieveAPIView):
