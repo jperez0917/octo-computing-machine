@@ -13,7 +13,8 @@
         <div class="link-entry">
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
             <a href="{% url 'links:detail' link.pk %}">Detail view of {{ link.url_label }}</a><br>
-            <p>{{ link.notes|linebreaksbr }}</p>
+            <p>{{ link.owner }} - Public:{{ link.public }}</p>
+            <p>{{ link.id }} : {{ link.notes }}</p>
         </div>
     {% endfor %}
 
