@@ -1,8 +1,12 @@
 <div class="user-login-status">
+    <hr>
     {% if user.is_authenticated %}
         Welcome, {{ user.username|capfirst }}:<br>
         <a href="{% url 'logout' %}">Log Out</a>
     {% else %}
-        You are not logged in.<br>
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a> |
+        <a href="{% url 'signup' %}">Sign Up</a>
     {% endif %}
+    <hr>
 </div>

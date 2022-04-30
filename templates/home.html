@@ -5,12 +5,7 @@
 {% block content %}
     <a href="{% url 'links:list' %}">Links Home</a><br>
 </nav>
-    {% if user.is_authenticated %}
-        Welcome, {{ user.username|capfirst }}:<br>
-        <a href="{% url 'logout' %}">Log Out</a>
-    {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Log In</a> |
-        <a href="{% url 'signup' %}">Sign Up</a>
-    {% endif %}
+
+{% include 'login_logout.html' %}
+
 {% endblock %}
