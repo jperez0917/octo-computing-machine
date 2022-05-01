@@ -2,17 +2,37 @@ from django.views.generic import ListView, DetailView
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 
 from links.models import Link
+from accounts.models import CustomUser
 
 
-class LinkListView(ListView):
+class PublicLinkListView(ListView):
+    model = Link
+    template_name = 'links/links_public.html'
+
+    def get_queryset(self):
+        return Link.objects.filter(public=True)
+
+
+class LinkListView(LoginRequiredMixin, ListView):
     model = Link
     template_name = 'links/link_home.html'
 
 
-class LinkDetailView(DetailView):
+class LinkUserProfileView(LoginRequiredMixin, DetailView):
+    model = CustomUser
+    template_name = 'links/link_user_profile.html'
+    context_object_name = 'user_profile'
+
+    def get_object(self):
+        return_object =  get_object_or_404(CustomUser, username=self.request.user)
+        return return_object
+
+
+class LinkDetailView(LoginRequiredMixin, DetailView):
     model = Link
     template_name = 'links\link_detail.html'
 

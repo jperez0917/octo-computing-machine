@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{% url 'home' %}">Project Home</a><br>
+    <a href="{% url 'project_home' %}">Project Home</a><br>
     <a href="{% url 'links:list' %}">Links Home</a><br>
+    <a href="{% url 'links:public' %}">Public Links</a><br>
 </nav>
 
 {% include 'login_logout.html' %}
