@@ -17,11 +17,6 @@ class PublicLinkListView(ListView):
         return Link.objects.filter(public=True)
 
 
-# class LinkListView(LoginRequiredMixin, ListView):
-#     model = Link
-#     template_name = 'links/link_home.html'
-
-
 class LinkUserProfileView(LoginRequiredMixin, DetailView):
     model = CustomUser
     template_name = 'links/link_user_profile.html'
@@ -36,7 +31,7 @@ class LinkUserProfileView(LoginRequiredMixin, DetailView):
         # Here we are adding more 'context' attributes.
         # print(context)
         # print(context.keys())
-        context['number_of_links'] = Link.objects.count()
+        context['number_of_links'] = Link.objects.filter(owner=self.request.user.id).count()
         # context[] = <another item>
         return context    
 
@@ -69,7 +64,7 @@ class LinkEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class LinkDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Link
     template_name = 'links\link_delete.html'
-    success_url = reverse_lazy('links:list')
+    success_url = reverse_lazy('links:profile')
 
     def test_func(self):
         link = self.get_object()

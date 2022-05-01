@@ -4,7 +4,8 @@
 
 {% block content %}
     <a href="{% url 'project_home' %}">Project Home</a><br>
-    {% comment %} <a href="{% url 'links:list' %}">Links Home</a><br> {% endcomment %}
+    <a href="{% url 'links:public' %}">Public Links</a><br>
+    <a href="{% url 'links:profile' %}">Links Home</a><br>
     <a href="{% url 'links:create' %}">Link Create</a><br>
 </nav>
 
@@ -12,13 +13,13 @@
 
     <div>
         <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a>
+        <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : {{ link.notes }}</p>
         <p>{{ link.owner|capfirst }}</p>
-        <p>Public:{{ link.public }} : {{ link.id }} : {{ link.notes }}</p>
     </div>
 
     {% if user == link.owner %}
-        <p><a href="{% url 'links:edit' link.id %}">Edit Your Link</a></p>
-        <p><a href="{% url 'links:delete' link.id %}">Delete Your Link</a></p>
+        <p><a href="{% url 'links:edit' link.id %}">Edit Link</a></p>
+        <p><a href="{% url 'links:delete' link.id %}">Delete Link</a></p>
     {% endif %}
 
 {% endblock content %}

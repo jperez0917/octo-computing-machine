@@ -4,8 +4,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    {% comment %} <a href="{% url 'links:list' %}">Links Home</a><br> {% endcomment %}
-    <a href="{% url 'links:profile' %}">My Links</a><br>
+    <a href="{% url 'links:profile' %}">Links Home</a><br>
     <a href="{% url 'links:public' %}">Public Links</a><br>
     {% else %}
     <a href="{% url 'links:public' %}">Public Links</a><br>

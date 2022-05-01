@@ -4,9 +4,8 @@
 
 {% block content %}
     <a href="{% url 'project_home' %}">Project Home</a><br>
-    {% comment %} <a href="{% url 'links:list' %}">Links Home</a><br> {% endcomment %}
     <a href="{% url 'links:public' %}">Public Links</a><br>
-    <a href="{% url 'links:profile' %}">My Links</a><br>
+    <a href="{% url 'links:profile' %}">Links Home</a><br>
 </nav>
 
 {% include 'login_logout.html' %}
