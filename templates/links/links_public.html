@@ -5,22 +5,21 @@
 {% block content %}
     <a href="{% url 'project_home' %}">Project Home</a><br>
     {% if user.is_authenticated %}
-    {% comment %} <a href="{% url 'links:list' %}">Links Home</a><br> {% endcomment %}
-    <a href="{% url 'links:profile' %}">My Links</a><br>
+    <a href="{% url 'links:profile' %}">Links Home</a><br>
     <a href="{% url 'links:create' %}">Link Create</a><br>
     {% else %}
     {% endif %}
 </nav>
 
 {% include 'login_logout.html' %}
-
+    <h1>Public Links</h1>
     {% for link in link_list %}
-        <div>
+        <article>
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
             <a href="{% url 'links:detail' link.id %}">Details for {{ link.url_label }}</a><br>
-            <p>{{ link.owner }} - Public: {{ link.public }}</p>
             <p>{{ link.id }} : {{ link.notes }}</p>
-        </div>
+            <p>{{ link.owner }}</p>
+        </article>
     {% endfor %}
 
 {% endblock content %}

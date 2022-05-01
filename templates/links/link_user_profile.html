@@ -4,23 +4,21 @@
 
 {% block content %}
     <a href="{% url 'project_home' %}">Project Home</a><br>
-    {% comment %} <a href="{% url 'links:list' %}">Links Home</a><br> {% endcomment %}
     <a href="{% url 'links:public' %}">Public Links</a><br>
     <a href="{% url 'links:create' %}">Link Create</a><br>
 </nav>
 
 {% include 'login_logout.html' %}
 
-    <h1>{{ user_profile.username|capfirst }}</h1>
+    <h1>{{ user_profile.username|capfirst }}'s Links</h1>
     <p>Number of Links: {{ number_of_links }}</p>
 
     {% for link in user_profile.links.all %}
-        <div class="link-entry">
+        <article class="link-entry">
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
             <a href="{% url 'links:detail' link.pk %}">Detail view of {{ link.url_label }}</a><br>
-            <p>{{ link.owner }} - Public:{{ link.public }}</p>
-            <p>{{ link.id }} : {{ link.notes }}</p>
-        </div>
+            <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : {{ link.notes }}</p>
+        </article>
     {% endfor %}
 
 {% endblock content %}
