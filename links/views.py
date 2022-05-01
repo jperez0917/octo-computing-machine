@@ -17,9 +17,9 @@ class PublicLinkListView(ListView):
         return Link.objects.filter(public=True)
 
 
-class LinkListView(LoginRequiredMixin, ListView):
-    model = Link
-    template_name = 'links/link_home.html'
+# class LinkListView(LoginRequiredMixin, ListView):
+#     model = Link
+#     template_name = 'links/link_home.html'
 
 
 class LinkUserProfileView(LoginRequiredMixin, DetailView):
