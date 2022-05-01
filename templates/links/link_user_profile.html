@@ -12,6 +12,7 @@
 {% include 'login_logout.html' %}
 
     <h1>{{ user_profile.username|capfirst }}</h1>
+    <p>Number of Links: {{ number_of_links }}</p>
 
     {% for link in user_profile.links.all %}
         <div class="link-entry">

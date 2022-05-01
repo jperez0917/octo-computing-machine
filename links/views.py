@@ -30,6 +30,15 @@ class LinkUserProfileView(LoginRequiredMixin, DetailView):
     def get_object(self):
         return_object =  get_object_or_404(CustomUser, username=self.request.user)
         return return_object
+    
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        # Here we are adding more 'context' attributes.
+        # print(context)
+        # print(context.keys())
+        context['number_of_links'] = Link.objects.count()
+        # context[] = <another item>
+        return context    
 
 
 class LinkDetailView(LoginRequiredMixin, DetailView):
