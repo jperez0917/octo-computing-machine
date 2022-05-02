@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}User Edit Page{% endblock %}
 
 {% block content %}
     <a href="{% url 'project_home' %}">Project Home</a><br>
     <a href="{% url 'links:public' %}">Public Links</a><br>
 </nav>
-
-    <h2>Sign Up</h2>
+    <h2>User Edit</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Sign Up</button>
+        <button type="submit">Confirm changes</button>
     </form>
 {% endblock %}
