@@ -6,6 +6,9 @@ from api.serializers import UserSerializer, LinkSerializer
 from links.models import Link
 
 class LinkPublicViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    List of Links where the 'public' field is set to True. These Links are for public view by anonymous users.
+    """
     queryset = Link.objects.filter(public=True)
     serializer_class = LinkSerializer
 
@@ -17,14 +20,20 @@ class LinkPublicViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class LinkViewSet(viewsets.ModelViewSet):
-    queryset = Link.objects.all()
+    """
+    Links which are owned by user. Should allow adding Link by user.
+    """
+    def get_queryset(self):
+        return Link.objects.filter(owner=self.request.user.id)
     serializer_class = LinkSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
 
 class CurrentUserView(generics.RetrieveAPIView):
+    """
+    User info and Links owned by user.
+    """
     serializer_class = UserSerializer
-    permission_classes = (permissions.IsAuthenticated,)
     #################################################################
     # When user not authenticated:
 
@@ -42,3 +51,4 @@ class CurrentUserView(generics.RetrieveAPIView):
     #################################################################
     def get_object(self):
         return self.request.user
+    permission_classes = (permissions.IsAuthenticated,)
