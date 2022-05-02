@@ -16,9 +16,8 @@
     {% for link in link_list %}
         <article>
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
+            <p>{{ link.owner }} : {{ link.id }} : {{ link.notes }}</p>
             <a href="{% url 'links:detail' link.id %}">Details for {{ link.url_label }}</a><br>
-            <p>{{ link.id }} : {{ link.notes }}</p>
-            <p>{{ link.owner }}</p>
         </article>
     {% endfor %}
 

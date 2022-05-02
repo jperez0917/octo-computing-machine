@@ -68,4 +68,3 @@ class UserSerializer(serializers.ModelSerializer):
 
     def get_links_count(self, obj):
         return Link.objects.all().filter(owner=obj.id).count()
-
