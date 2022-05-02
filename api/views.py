@@ -1,9 +1,8 @@
 from rest_framework import viewsets, generics, permissions
 
-from django.contrib.auth import get_user_model
-
 from api.serializers import UserSerializer, LinkSerializer
 from links.models import Link
+
 
 class LinkPublicViewSet(viewsets.ReadOnlyModelViewSet):
     """

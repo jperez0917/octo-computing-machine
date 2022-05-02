@@ -18,7 +18,6 @@ class PublicLinkListView(ListView):
 
 
 class LinkUserProfileView(LoginRequiredMixin, DetailView):
-    model = CustomUser
     template_name = 'links/link_user_profile.html'
     context_object_name = 'user_profile'
 
@@ -51,7 +50,7 @@ class LinkCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class LinkEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class LinkUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Link
     template_name = 'links\link_edit.html'
     fields = ('url', 'url_label', 'notes', 'public')

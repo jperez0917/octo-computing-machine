@@ -18,7 +18,7 @@
     </div>
 
     {% if user == link.owner %}
-        <p><a href="{% url 'links:edit' link.id %}">Edit Link</a></p>
+        <p><a href="{% url 'links:update' link.id %}">Edit Link</a></p>
         <p><a href="{% url 'links:delete' link.id %}">Delete Link</a></p>
     {% endif %}
 
