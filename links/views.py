@@ -46,6 +46,7 @@ class LinkCreateView(LoginRequiredMixin, CreateView):
     fields = ('url', 'url_label', 'notes', 'public')
 
     def form_valid(self, form):
+        print(self)
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
