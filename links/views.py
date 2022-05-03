@@ -42,18 +42,17 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
 
 class LinkCreateView(LoginRequiredMixin, CreateView):
     model = Link
-    template_name = 'links\link_create.html'
+    template_name = 'links/link_create.html'
     fields = ('url', 'url_label', 'notes', 'public')
 
     def form_valid(self, form):
-        print(self)
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
 
 class LinkUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Link
-    template_name = 'links\link_edit.html'
+    template_name = 'links/link_edit.html'
     fields = ('url', 'url_label', 'notes', 'public')
 
     def test_func(self):
