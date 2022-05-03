@@ -14,7 +14,7 @@
 {% include 'login_logout.html' %}
     <h1>Public Links</h1>
     {% for link in link_list %}
-        <article>
+        <article style="margin: 3em 0">
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
             <p>{{ link.owner }} : {{ link.id }} : {{ link.notes }}</p>
             <a href="{% url 'links:detail' link.id %}">Details for {{ link.url_label }}</a><br>
