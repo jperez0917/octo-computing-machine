@@ -19,7 +19,7 @@
     {% for link in user_profile.links.all %}
         <article class="link-entry" style="margin: 3em 0">
             <a href="{{ link.url }}" target="_blank">{{ link.url_label|truncatechars:30 }}</a><br>
-            <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : {{ link.notes|truncatechars:20 }}</p>
+            <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : {{ link.notes|truncatechars:30 }}</p>
             <a href="{% url 'links:detail' link.pk %}">Detail view of {{ link.id|ordinal }} Link</a><br>
         </article>
     {% endfor %}
