@@ -16,8 +16,8 @@
     {% for link in link_list %}
         <article style="margin: 3em 0">
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
-            <p>{{ link.owner }} : {{ link.id }} : {{ link.notes|truncatewords:4 }}</p>
-            <a href="{% url 'links:detail' link.id %}">Details for {{ link.url_label }}</a><br>
+            <p>{{ link.owner }} : {{ link.id }} : {{ link.notes|truncatechars:20 }}</p>
+            <a href="{% url 'links:detail' link.id %}">Detail view of Link {{ link.id }}</a><br>
         </article>
     {% endfor %}
 

@@ -15,10 +15,10 @@
     <p>Number of Links: {{ number_of_links }}</p>
 
     {% for link in user_profile.links.all %}
-        <article class="link-entry">
+        <article class="link-entry" style="margin: 3em 0">
             <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a><br>
-            <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : {{ link.notes }}</p>
-            <a href="{% url 'links:detail' link.pk %}">Detail view of {{ link.url_label }}</a><br>
+            <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : {{ link.notes|truncatechars:20 }}</p>
+            <a href="{% url 'links:detail' link.pk %}">Detail view of Link {{ link.id }}</a><br>
         </article>
     {% endfor %}
 
