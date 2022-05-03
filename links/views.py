@@ -37,7 +37,7 @@ class LinkUserProfileView(LoginRequiredMixin, DetailView):
 
 class LinkDetailView(LoginRequiredMixin, DetailView):
     model = Link
-    template_name = 'links\link_detail.html'
+    template_name = 'links/link_detail.html'
 
 
 class LinkCreateView(LoginRequiredMixin, CreateView):
@@ -62,7 +62,7 @@ class LinkUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class LinkDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Link
-    template_name = 'links\link_delete.html'
+    template_name = 'links/link_delete.html'
     success_url = reverse_lazy('links:profile')
 
     def test_func(self):
