@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-from knowledge_quest.settings import AUTH_USER_MODEL
+from knowledge_quest.settings.common import AUTH_USER_MODEL
 
 
 class Link(models.Model):
