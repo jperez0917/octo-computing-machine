@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <a href="{% url 'links:profile' %}">Links Home</a><br>
+    <a href="{% url 'links:profile' %}">User Home</a><br>
     <a href="{% url 'links:public' %}">Public Links</a><br>
     <a href="{% url 'accounts:update' user.id %}">Edit User Profile</a><br>
     {% else %}
