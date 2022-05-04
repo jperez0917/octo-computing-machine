@@ -13,14 +13,15 @@ class PublicLinkListView(ListView):
     # model attribute not needed since we are using get_queryset.
     # model = Link
     template_name = 'links/links_public.html'
+    paginate_by = 4
 
     def get_queryset(self):
         return Link.objects.filter(public=True)
 
 
 class LinkListView(LoginRequiredMixin, ListView):
-    paginate_by = 3
     template_name = 'links/links_list.html'
+    paginate_by = 4
 
     def get_queryset(self):
         print(self.request.user.id)
