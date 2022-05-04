@@ -10,11 +10,25 @@ from accounts.models import CustomUser
 
 
 class PublicLinkListView(ListView):
-    model = Link
+    # model attribute not needed since we are using get_queryset.
+    # model = Link
     template_name = 'links/links_public.html'
 
     def get_queryset(self):
         return Link.objects.filter(public=True)
+
+
+class LinkListView(LoginRequiredMixin, ListView):
+    template_name = 'links/links_list.html'
+
+    def get_queryset(self):
+        print(self.request.user.id)
+        return Link.objects.filter(owner=self.request.user.id)
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['username'] = self.request.user.username
+        return context
 
 
 class LinkUserProfileView(LoginRequiredMixin, DetailView):

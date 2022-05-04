@@ -4,6 +4,8 @@
 
 {% block content %}
     <a href="{% url 'project_home' %}">Project Home</a><br>
+    <a href="{% url 'links:profile' %}">User Home</a><br>
+    <a href="{% url 'links:list' %}">Links List</a><br>
 </nav>
 
 {% include 'login_logout.html' %}
@@ -12,7 +14,8 @@
     <form action="" method="post">
         {% csrf_token %}
         <p>Are you sure you want to delete Link "{{ link.url_label }}"?</p>
-        <input type="submit" value="Confirm">
+        <input type="submit" value="Confirm"><br>
+        <a href="{{ view.get_success_url }}">Cancel</a>
     </form>
 
 {% endblock content %}

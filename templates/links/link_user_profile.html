@@ -7,6 +7,7 @@
 {% block content %}
     <a href="{% url 'project_home' %}">Project Home</a><br>
     <a href="{% url 'links:public' %}">Public Links</a><br>
+    <a href="{% url 'links:list' %}">Links List</a><br>    
     <a href="{% url 'links:create' %}">Link Create</a><br>
     <a href="{% url 'accounts:update' user_profile.id %}">Edit User Profile</a><br>
 </nav>
