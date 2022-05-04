@@ -29,7 +29,7 @@ class LinkListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
-        context['username'] = self.request.user.username
+        context['number_of_links'] = Link.objects.filter(owner=self.request.user.id).count()
         return context
 
 

@@ -15,7 +15,8 @@
 </nav>
 
 {% include 'login_logout.html' %}
-    <h1>{{ username|capfirst }}'s Links</h1>
+    <h1>{{ user.username|capfirst }}'s Links</h1>
+    <p>Number of Links: {{ number_of_links }}</p>
 
     <div>
         <span>
