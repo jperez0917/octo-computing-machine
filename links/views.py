@@ -19,6 +19,7 @@ class PublicLinkListView(ListView):
 
 
 class LinkListView(LoginRequiredMixin, ListView):
+    paginate_by = 3
     template_name = 'links/links_list.html'
 
     def get_queryset(self):
