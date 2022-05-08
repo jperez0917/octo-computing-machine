@@ -14,7 +14,7 @@
 
     <div>
         <a href="{{ link.url }}" target="_blank">{{ link.url_label }}</a>
-        <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : {{ link.notes }}</p>
+        <p>{% if link.public == True %}Public{% else %}Private{% endif %} : {{ link.id }} : <pre>{{ link.notes }}</pre></p>
         <p>{{ link.owner|capfirst }}</p>
     </div>
 
