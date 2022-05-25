@@ -1,6 +1,7 @@
 secrets.*
 .vscode
 *.code-workspace
+local_things*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
